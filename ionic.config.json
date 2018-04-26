@@ -1,0 +1,8 @@
+{
+  "name": "tima-test",
+  "app_id": "02463090",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
