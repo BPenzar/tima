@@ -18,9 +18,7 @@ The way to use this.
 
 To test TIMA, clone the repository, install the latest version of the Ionic CLI and run:
 
-```bash
-ionic start mySuperApp super
-```
+
 
 ```bash
 ionic serve
