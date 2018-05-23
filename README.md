@@ -51,6 +51,11 @@ each.
 
 Basic implementations of common providers.
 
+### CouchDB & PouchDB
+
+Basic implementations of common providers.
+
+
 ### Items
 
 Todos
