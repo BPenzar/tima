@@ -30,6 +30,14 @@ The app loads with the `FirstRunPage` set to `TutorialPage` as the default. If
 the user has already gone through this page once, it will be skipped the next
 time they load the app.
 
+### Genutzte Seiten
+
+Todos
+
+### Ungenutzte Seiten
+
+Todos
+
 The entry and main pages can be configured easily by updating the corresponding
 variables in
 [src/pages/index.ts](https://github.com/ionic-team/starters/blob/master/ionic-angular/official/super/src/pages/index.ts).
