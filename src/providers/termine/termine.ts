@@ -2,17 +2,25 @@ import { Injectable } from '@angular/core';
 import PouchDB from 'pouchdb';
  
 @Injectable()
-export class Items {
+export class Termine {
  
   data: any;
   db: any;
   remote: any;
+
+  changes = 2;
  
+  // options = {
+  //   live: true,
+  //   retry: true,
+  //   continuous: true
+  // };
+
   constructor() {
  
-    this.db = new PouchDB('todos');
+    this.db = new PouchDB('termine');
  
-    this.remote = 'http://localhost:5984/todos';
+    this.remote = 'http://localhost:5984/termine';
  
     let options = {
       live: true,
@@ -24,7 +32,7 @@ export class Items {
  
   }
  
-  getTodos() {
+  getTermine() {
     if (this.data) {
       return Promise.resolve(this.data);
     }
@@ -39,7 +47,14 @@ export class Items {
         });
         resolve(this.data);
         this.db.changes({live: true, since: 'now', include_docs: true}).on('change', (change) => {
+          
+          this.changes++;
+          console.log(this.changes);
           this.handleChange(change);
+          console.log(113);
+          console.log(this.changes);
+          
+
         });
       }).catch((error) => {
         console.log(error);
@@ -47,18 +62,18 @@ export class Items {
     });
   }
  
-  createTodo(todo){
-    this.db.post(todo);
+  createTermin(termin){
+    this.db.post(termin);
   }
    
-  updateTodo(todo){
-    this.db.put(todo).catch((err) => {
+  updateTermin(termin){
+    this.db.put(termin).catch((err) => {
       console.log(err);
     });
   }
    
-  deleteTodo(todo){
-    this.db.remove(todo).catch((err) => {
+  deleteTermin(termin){
+    this.db.remove(termin).catch((err) => {
       console.log(err);
     });
   }
@@ -75,7 +90,10 @@ export class Items {
     });
     //A document was deleted
     if(change.deleted){
-      this.data.splice(changedIndex, 1);
+      if (this.changes > 1){
+        this.data.splice(changedIndex, 1);
+        this.changes = 0;
+      }
     }
     else {
       //A document was updated

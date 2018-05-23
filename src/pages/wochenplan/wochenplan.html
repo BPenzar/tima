@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>{{viewTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addEvent()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ng-template #template let-displayEvent="displayEvent">
+    <ng-container *ngIf="displayEvent.event.weekly">
+      <div class="calendar-event-inner weekly-event">
+        {{displayEvent.event.title}}
+      </div>
+    </ng-container>
+    <ng-container *ngIf="! displayEvent.event.weekly">
+      <div class="calendar-event-inner">
+        {{displayEvent.event.title}}            
+      </div>
+    </ng-container>
+  </ng-template>
+     
+  <calendar [eventSource]="termine"
+    [weekviewNormalEventTemplate]="template"
+    [calendarMode]="calendar.mode"
+    [currentDate]="calendar.currentDate"
+    (onEventSelected)="onEventSelected($event)"
+    (onTitleChanged)="onViewTitleChanged($event)"
+    (onTimeSelected)="onTimeSelected($event)"
+    [queryMode]="calendar.queryMode" 
+    (onRangeChanged)="onRangeChanged($event)"
+    [step]="5"
+    class="calendar">
+  </calendar>
+
+</ion-content>

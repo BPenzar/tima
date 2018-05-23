@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, AlertController} from 'ionic-angular';
 
-import { Item } from '../../models/item';
-import { Items } from '../../providers';
+import { Items } from '../../providers/items/items';
 
 @IonicPage()
 @Component({
@@ -10,45 +9,58 @@ import { Items } from '../../providers';
   templateUrl: 'list-master.html'
 })
 export class ListMasterPage {
-  currentItems: Item[];
-
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
-    this.currentItems = this.items.query();
+  todos: any;
+ 
+  constructor(public navCtrl: NavController, public todoService: Items, public modalCtrl: ModalController, public alertCtrl: AlertController) {
   }
 
-  /**
-   * The view loaded, let's query our items for the list
-   */
-  ionViewDidLoad() {
-  }
+  
+  ionViewDidLoad(){
+    this.todoService.getTodos().then((data) => {
+      this.todos = data;
+    });
+}
 
-  /**
-   * Prompt the user to add a new item. This shows our ItemCreatePage in a
-   * modal and then adds the new item to our data source if the user created one.
-   */
-  addItem() {
-    let addModal = this.modalCtrl.create('ItemCreatePage');
+  createTodo(){
+    let addModal = this.modalCtrl.create('ItemCreatePage', {zeitraum: 't'});
     addModal.onDidDismiss(item => {
       if (item) {
-        this.items.add(item);
+        this.todoService.createTodo(item);
+        this.navCtrl.setRoot(this.navCtrl.getActive().component);
       }
+      // this.todoService.getTodos().then((data) => {
+      //   this.todos = data;
+      // });
     })
     addModal.present();
   }
 
-  /**
-   * Delete an item from the list of items.
-   */
-  deleteItem(item) {
-    this.items.delete(item);
+  updateTodo(todo){
+    let addModal = this.modalCtrl.create('ItemDetailPage', {item: todo});
+    addModal.onDidDismiss(todo => {
+      if (todo) {
+        this.todoService.updateTodo(todo);
+        this.navCtrl.setRoot(this.navCtrl.getActive().component);
+      } 
+    })
+    addModal.present();
   }
 
-  /**
-   * Navigate to the detail page for this item.
-   */
-  openItem(item: Item) {
-    this.navCtrl.push('ItemDetailPage', {
-      item: item
-    });
+  switchToDo(todo) {
+    if (todo.zeitraum == 'w'){
+      todo.zeitraum = 't';
+      this.todoService.updateTodo(todo);
+      this.navCtrl.setRoot(this.navCtrl.getActive().component);
+    }
+    else if (todo.zeitraum = 't'){
+      todo.zeitraum = 'w';
+      this.todoService.updateTodo(todo);
+      this.navCtrl.setRoot(this.navCtrl.getActive().component);
+    }
   }
+
+  deleteTodo(todo){
+    this.todoService.deleteTodo(todo);
+    this.navCtrl.setRoot(this.navCtrl.getActive().component);
+  }  
 }

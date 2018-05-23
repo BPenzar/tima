@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+      <ion-buttons left>
+        <button ion-button (click)="cancel()" strong>
+          <span color="primary" showWhen="ios">
+            {{ 'CANCEL_BUTTON' | translate }}
+          </span>
+          <ion-icon name="md-close" showWhen="core,android,windows"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title text-center>Neue Termin</ion-title>
+      <ion-buttons end>
+        <button ion-button (click)="save()" strong>
+          <span color="primary" showWhen="ios">
+            {{ 'DONE_BUTTON' | translate }}
+          </span>
+          <ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>  
+    <!-- Title -->
+    <ion-item>
+      <ion-input type="text" placeholder="Title" [(ngModel)]="event.title"></ion-input>
+    </ion-item>
+    <!-- About -->
+    <ion-item>
+      <ion-input type="text" placeholder="About" [(ngModel)]="event.about"></ion-input>
+    </ion-item>
+    <ion-item-divider>
+    </ion-item-divider>
+     <!-- Weekly -->
+    <ion-item>
+      <ion-label>Wöchentlich</ion-label>
+      <ion-toggle [(ngModel)]="event.weekly"></ion-toggle>
+    </ion-item>
+    <!-- StartTime -->
+    <ion-item>
+      <ion-label>Start</ion-label> 
+      <ion-datetime displayFormat="YYYY-MM-DD  HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="startZeit" [max]="endZeit"></ion-datetime>
+    </ion-item>
+    <!-- EndTime -->
+    <ion-item>
+      <ion-label>Ende</ion-label>
+      <ion-datetime displayFormat="YYYY-MM-DD  HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="endZeit" [min]="startZeit"></ion-datetime>
+    </ion-item>
+  </ion-list> 
+</ion-content>

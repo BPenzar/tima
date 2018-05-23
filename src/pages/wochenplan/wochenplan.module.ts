@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
+//Calendar Module
 import { NgCalendarModule  } from 'ionic2-calendar';
-
-import { ContentPage } from './content';
+import { WochenplanPage } from './wochenplan';
 
 @NgModule({
   declarations: [
-    ContentPage,
+    WochenplanPage,
   ],
   imports: [
-    IonicPageModule.forChild(ContentPage),
-    NgCalendarModule,
-    TranslateModule.forChild()
+    IonicPageModule.forChild(WochenplanPage),
+    TranslateModule.forChild(),
+    NgCalendarModule
   ],
   exports: [
-    ContentPage
+    WochenplanPage
   ]
 })
-export class ContentPageModule { }
-
+export class WochenplanPageModule {}
