@@ -39,24 +39,22 @@ http://127.0.0.1:5984/_utils#setup
 
 ## Used Technologies
 
-### Ionic
+ Ionic
 
-### Angular,Cordova & Node.js
+ Angular,Cordova & Node.js
 
-### Ionic2 Calendar Module
+ Ionic2 Calendar Module
 
-### CouchDB & PouchDB
-
-Basic implementations of common providers.
+ CouchDB & PouchDB
 
 
 ## Pages & Providers
 
-### Genutzte Pages
+<u>Genutzte Seiten</u>
 
 Todos
 
-### Ungenutzte Pages
+<u>Ungenutzte Pages</u>
 
 The entry and main pages can be configured easily by updating the corresponding
 variables in
@@ -67,7 +65,9 @@ Please read the
 readme, and the readme for each page in the source for more documentation on
 each.
 
-### Providers
+<u>Providers</u>
+
+Basic implementations of common providers.
 
 Todos
 
