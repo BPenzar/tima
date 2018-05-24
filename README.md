@@ -2,41 +2,61 @@
 
 TIMA
 
-The goal data/user management, and project structure.
+TIME MANAGEMENT HYBRID-APPLICATION
 
-The way to use this.
-.
+The goal: Time Management, To-dos (daily, weekly) and calendar (daily, weekly) in one place.
+
 
 ## Table of Contents
 
 1. [Getting Started](#getting-started)
-2. [Pages](#pages)
-3. [Providers](#providers)
+2. [Used Technologies](#used-technologies)
+3. [Pages & Providers](#pages-providers)
 4. [Theorie](#Theorie)
 
-## <a name="getting-started"></a>Getting Started
+## <a name="getting-started">TIMA</a>Getting Started
 
-To test TIMA, clone the repository, install the latest version of the Ionic CLI and run:
+<u>To test TIMA:</u>
 
-
+Clone the repository, install the latest version of the Ionic CLI and run:
 
 ```bash
 ionic serve
 ```
 
-## Pages
+<u>For lokal Database:</u>
 
-The app loads with the `FirstRunPage` set to `TutorialPage` as the default. If
-the user has already gone through this page once, it will be skipped the next
-time they load the app.
+Downloade [CouchDB](http://couchdb.apache.org).
 
-### Genutzte Seiten
+Setup the [CouchDB Cluster](http://docs.couchdb.org/en/latest/install/setup.html)   
+
+Then, control and work with the lokal CouchDB Database over Fauxton: 
+
+```bash
+http://127.0.0.1:5984/_utils#setup
+```
+
+
+## Used Technologies
+
+### Ionic
+
+### Angular,Cordova & Node.js
+
+### Ionic2 Calendar Module
+
+### CouchDB & PouchDB
+
+Basic implementations of common providers.
+
+
+## Pages & Providers
+
+### Genutzte Pages
 
 Todos
 
-### Ungenutzte Seiten
-
-Todos
+### Ungenutzte Pages
 
 The entry and main pages can be configured easily by updating the corresponding
 variables in
@@ -47,24 +67,16 @@ Please read the
 readme, and the readme for each page in the source for more documentation on
 each.
 
-## Providers
-
-Basic implementations of common providers.
-
-### CouchDB & PouchDB
-
-Basic implementations of common providers.
-
-
-### Items
+### Providers
 
 Todos
 
-### Termine
+Termine
 
 Termine
   a simple CRUD frontend to an API. Simply put the root of
   your API url in the Api class and call get/post/put/patch/delete 
+
 
 ## Theorie
 
