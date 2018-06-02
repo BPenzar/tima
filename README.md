@@ -1,11 +1,14 @@
 # TIMA — Hybrid-App zum Zeitmanagement
 
-TIMA
+TIME MANAGEMENT HYBRID-APPLICATION -- TIMA
 
-TIME MANAGEMENT HYBRID-APPLICATION
+Bachelorthesis -- University of Cologne
 
-The goal: Time Management, To-dos (daily, weekly) and calendar (daily, weekly) in one place.
 
+
+Goals: 
+Time-Management-App, To-dos (daily, weekly) and calendar (daily, weekly) in one place.
+Possibility of further development.
 
 ## Table of Contents
 
@@ -18,7 +21,7 @@ The goal: Time Management, To-dos (daily, weekly) and calendar (daily, weekly) i
 
 <u>To test TIMA:</u>
 
-Clone the repository, install the latest version of the Ionic CLI and run:
+Clone the repository, install the latest version of the Ionic CLI and run in the directory:
 
 ```bash
 ionic serve
@@ -39,55 +42,114 @@ http://127.0.0.1:5984/_utils#setup
 
 ## Used Technologies
 
- Ionic
+Frameworks, Technologies and Modules:
 
- Angular,Cordova & Node.js
+[Ionic](https://ionicframework.com)
 
- Ionic2 Calendar Module
+[Angular](https://angular.io)
+[Cordova](https://cordova.apache.org)
+[Node.js](https://nodejs.org/en/)
 
- CouchDB & PouchDB
+[Ionic2 Calendar Module](https://github.com/twinssbc/Ionic2-Calendar)
+
+[CouchDB](http://couchdb.apache.org)
+[PouchDB](https://pouchdb.com)
 
 
 ## Pages & Providers
 
-<u>Genutzte Seiten</u>
+<u>Used Pages</u>
 
-Todos
+In directory under
+```bash
+tima-master/src/pages/...
+```
 
-<u>Ungenutzte Pages</u>
 
-The entry and main pages can be configured easily by updating the corresponding
-variables in
-[src/pages/index.ts](https://github.com/ionic-team/starters/blob/master/ionic-angular/official/super/src/pages/index.ts).
+Daily To-dos:
+```bash
+tima-master/src/pages/list-master
+```
 
-Please read the
-[Pages](https://github.com/ionic-team/starters/tree/master/ionic-angular/official/super/src/pages)
-readme, and the readme for each page in the source for more documentation on
-each.
+Weekly to-dos:
+```bash
+tima-master/src/pages/content
+```
 
-<u>Providers</u>
+To-do createpage:
+```bash
+tima-master/src/pages/item-create
+```
 
-Basic implementations of common providers.
+To-do detailpage:
+```bash
+tima-master/src/pages/item-detail
+```
 
-Todos
+Daily planner:
+```bash
+tima-master/src/pages/tagesplan
+```
 
-Termine
+Weekly planner:
+```bash
+tima-master/src/pages/wochenplan
+```
 
-Termine
-  a simple CRUD frontend to an API. Simply put the root of
-  your API url in the Api class and call get/post/put/patch/delete 
+Termine createpage:
+```bash
+tima-master/src/pages/termin-create
+```
+
+Termine detailpage:
+```bash
+tima-master/src/pages/termin-detail
+```
+
+Tabs:
+```bash
+tima-master/src/pages/tabs
+```
+
+
+
+<u>Unused Pages</u>
+
+```bash
+tima-master/src/pages/login
+tima-master/src/pages/menu
+tima-master/src/pages/settings
+tima-master/src/pages/signup
+tima-master/src/pages/tutorial
+tima-master/src/pages/welcome
+```
+(For further use...)
+
+
+<u>Used Providers</u>
+
+
+To-dos Provider:
+```bash
+tima-master/src/providers/items
+```
+
+Termine Provider:
+```bash
+tima-master/src/providers/termine
+```
+
+<u>Unused Providers</u>
+```bash
+tima-master/src/providers/api
+tima-master/src/providers/settings
+tima-master/src/providers/user
+```
 
 
 ## Theorie
 
-TheorieTeil. 
+Theorie of time and timemanagement in the corresponding bachelorthesis. 
   
-    BA Als Dokument einbinden?? Nach Benotung?...
-
-### Zeit
-
-.
-
-### Zeitmanagement
-
-...
+Bruno Sebastian Penzar
+University of Cologne
